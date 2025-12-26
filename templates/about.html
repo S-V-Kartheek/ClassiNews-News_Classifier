@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}About · ClassiNews{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>About <span>ClassiNews</span></h1>
+    <p class="page-subtitle">Understanding how our AI-powered news classifier works</p>
+</div>
+
+<div class="content-grid">
+    <section class="content-card">
+        <h2><i class="fas fa-bullseye"></i> What is ClassiNews?</h2>
+        <p>
+            ClassiNews is a news classification tool that automatically sorts articles into 
+            categories using machine learning.
+        </p>
+        <p>
+            Just paste in a headline or full article and it'll tell you if it's World News, 
+            Sports, Business, or Sci/Tech.
+        </p>
+    </section>
+
+    <section class="content-card">
+        <h2><i class="fas fa-brain"></i> How It Works</h2>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Text Preprocessing</h3>
+                    <p>We clean up the text - lowercase it, remove URLs, and strip out stopwords.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Feature Extraction</h3>
+                    <p>TF-IDF converts the text into numbers the model can work with.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Classification</h3>
+                    <p>The model looks at the features and picks the best category.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-card">
+        <h2><i class="fas fa-tools"></i> Technology Stack</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <strong>Backend:</strong> Python, Flask
+            </div>
+            <div class="tech-item">
+                <strong>ML Framework:</strong> scikit-learn
+            </div>
+            <div class="tech-item">
+                <strong>NLP:</strong> NLTK, TF-IDF Vectorization
+            </div>
+            <div class="tech-item">
+                <strong>Model:</strong> Multinomial Naive Bayes
+            </div>
+            <div class="tech-item">
+                <strong>Frontend:</strong> HTML5, CSS3, JavaScript
+            </div>
+            <div class="tech-item">
+                <strong>Deployment:</strong> Flask Web Server
+            </div>
+        </div>
+    </section>
+
+    <section class="content-card">
+        <h2><i class="fas fa-chart-line"></i> Model Performance</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">94%</div>
+                <div class="metric-label">Validation Accuracy</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">&lt;200ms</div>
+                <div class="metric-label">Average Response Time</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">4</div>
+                <div class="metric-label">Supported Categories</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-card">
+        <h2><i class="fas fa-shield-alt"></i> Privacy & Security</h2>
+        <p>
+            We store predictions locally in a JSON file. No personal info is collected.
+        </p>
+        <p>
+            Everything runs on the server - keeping it simple with no databases or external services.
+        </p>
+    </section>
+
+    <section class="content-card">
+        <h2><i class="fas fa-rocket"></i> Future Enhancements</h2>
+        <ul class="feature-list">
+            <li>Support for additional news categories</li>
+            <li>Confidence scores and probability distributions</li>
+            <li>Batch processing for multiple articles</li>
+            <li>RESTful API for integration</li>
+            <li>Real-time news feed classification</li>
+            <li>Export functionality for results</li>
+        </ul>
+    </section>
+</div>
+{% endblock %}
+

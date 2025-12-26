@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassiNews · AI News Classifier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+    <header class="nav">
+        <div class="logo">
+            ClassiNews
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <p class="eyebrow">AI powered topic detection</p>
+                <h1>Instantly classify any news article with <span>ClassiNews</span></h1>
+                <p class="subtitle">
+                    Paste a headline or an entire story and let our fine-tuned NLP model
+                    detect the most relevant news category in milliseconds.
+                </p>
+
+                <div class="hero-metrics">
+                    <div>
+                        <p class="metric-value">94%</p>
+                        <p class="metric-label">Validation Accuracy</p>
+                    </div>
+                    <div>
+                        <p class="metric-value">160ms</p>
+                        <p class="metric-label">Avg. Response Time</p>
+                    </div>
+                    <div>
+                        <p class="metric-value">8+</p>
+                        <p class="metric-label">Supported Topics</p>
+                    </div>
+                </div>
+
+                <div class="tagline">
+                    <span>Finance</span>
+                    <span>Business</span>
+                    <span>Politics</span>
+                    <span>Entertainment</span>
+                    <span>Sports</span>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div>
+                        <p class="panel-title">Classify a news piece</p>
+                        <p class="panel-subtitle">We only store inputs for 24 hours.</p>
+                    </div>
+                    <span class="badge">Secure</span>
+                </div>
+
+                <form action="/predict" method="POST" class="classifier-form">
+                    <label for="article">News content</label>
+                    <textarea
+                        id="article"
+                        name="article"
+                        placeholder="Paste or type your article here..."
+                        required>{{ article_text or '' }}</textarea>
+                    <button type="submit">
+                        <span>Classify now</span>
+                        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M4 10h12m0 0-4-4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+
+                {% if prediction_text %}
+                <div class="result-card">
+                    <p class="result-label">Predicted topic</p>
+                    <p class="result-value">{{ prediction_text }}</p>
+                </div>
+                {% endif %}
+
+                <div class="sample-prompts">
+                    <p>Need inspiration?</p>
+                    <div class="chips">
+                        <button type="button">Central bank lifts interest rates amid inflation fears</button>
+                        <button type="button">Champions League underdog stuns defending champions</button>
+                        <button type="button">Streaming giant reveals new original sci-fi lineup</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-grid">
+            <article>
+                <h3>Explainable output</h3>
+                <p>Built with a transparent pipeline so you can trust every prediction.</p>
+            </article>
+            <article>
+                <h3>Real-time processing</h3>
+                <p>Optimized Flask backend delivers sub-second inference over TF-IDF features.</p>
+            </article>
+            <article>
+                <h3>Enterprise ready</h3>
+                <p>Easily integrate ClassiNews into editorial, research, or compliance workflows.</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
+

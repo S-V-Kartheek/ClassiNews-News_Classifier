@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}History · ClassiNews{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Prediction <span>History</span></h1>
+    <p class="page-subtitle">View your recent classifications and statistics</p>
+</div>
+
+<div class="history-container">
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card primary">
+                <div class="stat-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="stat-value">{{ stats.total }}</div>
+                <div class="stat-label">Total Predictions</div>
+            </div>
+            {% for category, count in stats.categories.items() %}
+            <div class="stat-card">
+                <div class="stat-value">{{ count }}</div>
+                <div class="stat-label">{{ category }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- History List -->
+    <section class="history-section">
+        <h2>Recent Predictions</h2>
+        {% if history %}
+        <div class="history-list">
+            {% for entry in history %}
+            <div class="history-item">
+                <div class="history-item-header">
+                    <span class="category-badge category-{{ entry.prediction.lower().replace('/', '-') }}">
+                        {{ entry.prediction }}
+                    </span>
+                    <span class="history-time">{{ entry.timestamp[:16].replace('T', ' ') }}</span>
+                </div>
+                <p class="history-article">{{ entry.article }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-icon"><i class="fas fa-inbox"></i></div>
+            <h3>No predictions yet</h3>
+            <p>Start classifying news articles to see your history here.</p>
+            <a href="{{ url_for('home') }}" class="btn-primary"><i class="fas fa-arrow-right"></i> Go to Classifier</a>
+        </div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}
+

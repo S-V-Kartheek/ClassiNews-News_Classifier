@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}API Documentation · ClassiNews{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>API <span>Documentation</span></h1>
+    <p class="page-subtitle">Integrate ClassiNews into your applications</p>
+</div>
+
+<div class="api-docs-container">
+    <section class="api-section">
+        <h2>Overview</h2>
+        <p>
+            The ClassiNews API allows you to programmatically classify news articles. 
+            All requests should be sent to the base URL: <code>{{ request.host_url }}api/</code>
+        </p>
+    </section>
+
+    <section class="api-section">
+        <h2>Endpoints</h2>
+        
+        <div class="endpoint-card">
+            <div class="endpoint-header">
+                <span class="method post">POST</span>
+                <code class="endpoint-url">/api/predict</code>
+            </div>
+            <p class="endpoint-description">Classify a news article and get the predicted category.</p>
+            
+            <h3>Request</h3>
+            <div class="code-block">
+                <pre><code>{
+  "article": "Your news article text here..."
+}</code></pre>
+            </div>
+
+            <h3>Response</h3>
+            <div class="code-block">
+                <pre><code>{
+  "prediction": "Business",
+  "confidence": 0.92,
+  "probabilities": {
+    "World": 0.05,
+    "Sports": 0.02,
+    "Business": 0.92,
+    "Sci/Tech": 0.01
+  }
+}</code></pre>
+            </div>
+
+            <h3>Example (cURL)</h3>
+            <div class="code-block">
+                <pre><code>curl -X POST {{ request.host_url }}api/predict \
+  -H "Content-Type: application/json" \
+  -d '{"article": "Tech giant unveils revolutionary AI chip"}'
+</code></pre>
+            </div>
+
+            <h3>Example (JavaScript)</h3>
+            <div class="code-block">
+                <pre><code>fetch('{{ request.host_url }}api/predict', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    article: 'Tech giant unveils revolutionary AI chip'
+  })
+})
+.then(response => response.json())
+.then(data => console.log(data));
+</code></pre>
+            </div>
+
+            <h3>Example (Python)</h3>
+            <div class="code-block">
+                <pre><code>import requests
+
+response = requests.post(
+    '{{ request.host_url }}api/predict',
+    json={'article': 'Tech giant unveils revolutionary AI chip'}
+)
+data = response.json()
+print(data['prediction'])
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="api-section">
+        <h2>Response Codes</h2>
+        <div class="response-codes">
+            <div class="response-code">
+                <span class="code success">200</span>
+                <span>Success - Prediction completed</span>
+            </div>
+            <div class="response-code">
+                <span class="code error">400</span>
+                <span>Bad Request - Missing or invalid article text</span>
+            </div>
+            <div class="response-code">
+                <span class="code error">500</span>
+                <span>Server Error - Internal processing error</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="api-section">
+        <h2>Rate Limits</h2>
+        <p>
+            Currently, there are no rate limits on the API. However, we recommend 
+            implementing reasonable request throttling in your application to ensure 
+            optimal performance for all users.
+        </p>
+    </section>
+
+    <section class="api-section">
+        <h2>Error Handling</h2>
+        <p>All errors return a JSON response with an <code>error</code> field:</p>
+        <div class="code-block">
+            <pre><code>{
+  "error": "Article text is required"
+}</code></pre>
+        </div>
+    </section>
+</div>
+{% endblock %}
+

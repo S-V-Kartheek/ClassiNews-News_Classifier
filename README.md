@@ -2,6 +2,9 @@
 
 News classification web app built with Flask and scikit-learn. Classifies news articles into World, Sports, Business, or Sci/Tech categories.
 
+<img width="1154" height="868" alt="Screenshot 2025-12-26 190113" src="https://github.com/user-attachments/assets/30d350ad-d08c-497a-b274-466cabe3f878" />
+
+
 ## Quick Start
 
 1. Install dependencies:

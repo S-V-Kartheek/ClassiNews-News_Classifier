@@ -79,3 +79,4 @@ The app loads these from the `project/` directory.
 - Pre-trained models are included in `project/` folder
 - You can retrain anytime by running `train_model.py`
 
+

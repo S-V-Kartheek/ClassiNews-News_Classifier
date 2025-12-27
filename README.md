@@ -396,7 +396,7 @@ For detailed training information, see [TRAINING_INFO.md](TRAINING_INFO.md).
 
 ### System Requirements
 
-- **RAM**: Minimum 2GB (4GB recommended)
+- **RAM**: Minimum 4GB (4GB recommended)
 - **Storage**: ~200MB for application + models
 - **CPU**: Any modern processor (training requires more resources)
 

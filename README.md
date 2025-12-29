@@ -18,8 +18,8 @@
 <div align="center">
 
 <img width="600" height="400" alt="Home Page" src="https://github.com/user-attachments/assets/30d350ad-d08c-497a-b274-466cabe3f878" />
-<img width="450" height="250" alt="Classification Result" src="https://github.com/user-attachments/assets/6136f928-dc51-4b71-9250-54b7e668d8a5" />
-<img width="450" height="250" alt="History Page" src="https://github.com/user-attachments/assets/175f9804-2208-43ee-b9c9-b87c8a893a70" />
+<img width="400" height="250" alt="Classification Result" src="https://github.com/user-attachments/assets/6136f928-dc51-4b71-9250-54b7e668d8a5" />
+<img width="400" height="250" alt="History Page" src="https://github.com/user-attachments/assets/175f9804-2208-43ee-b9c9-b87c8a893a70" />
 <img width="600" height="558" alt="About Page" src="https://github.com/user-attachments/assets/58fa8d4e-635c-456f-8765-c70c24a933dc" />
 
 </div>
